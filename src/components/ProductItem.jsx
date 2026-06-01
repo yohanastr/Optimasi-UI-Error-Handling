@@ -8,9 +8,9 @@ const ProductItem = React.memo(({ product }) => {
   const [showDetail, setShowDetail] = useState(false);
 
   // Tambahan simulasi error dari Step 3.5 (jika Anda masih memakainya)
-  if (product.price > 200) {
-    throw new Error("Simulasi error untuk produk mahal!");
-  }
+  // if (product.price > 200) {
+  // throw new Error("Simulasi error untuk produk mahal!");
+  //}
 
   return (
     <div style={{ border: "1px solid #ccc", padding: "1rem" }}>

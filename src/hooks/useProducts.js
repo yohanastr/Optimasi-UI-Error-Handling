@@ -31,9 +31,9 @@ export const useProducts = () => {
   }, []);
 
   // Ambil data pertama kali saat aplikasi dimuat (Ubah ke true jika ingin menguji UI Error)
-  useEffect(() => {
-    fetchProducts(false); 
-  }, [fetchProducts]);
+useEffect(() => {
+  fetchProducts(true);
+}, [fetchProducts]);
 
   return { products, loading, error, refetch: fetchProducts };
 };

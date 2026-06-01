@@ -8,7 +8,12 @@ import ErrorBoundary from "./components/ErrorBoundary"; // Tambahkan import Erro
 import ProductListSuspense from "./components/ProductListSuspense"; 
 
 function App() {
-  const { products, loading, error } = useProducts();
+  const {
+  products,
+  loading,
+  error,
+  refetch
+} = useProducts();
   const [filter, setFilter] = useState("all");
   
   // Inisialisasi useTransition untuk optimasi filter update (Tugas Praktek No. 3)
@@ -29,7 +34,21 @@ function App() {
   };
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) {
+  return (
+    <div style={{ padding: "2rem" }}>
+      <h2>❌ Gagal mengambil data produk</h2>
+
+      <p>{error}</p>
+
+      <button
+        onClick={() => refetch(false)}
+      >
+        Retry
+      </button>
+    </div>
+  );
+}
 
   return (
     // Beri efek opacity ketika transisi sedang loading agar UI lebih informatif
